@@ -105,7 +105,10 @@ const btn = document.getElementById('like-button');
 posts.forEach((element,index)=>{
 
 createImage(element, index);
-
+let clicked="";
+if (element.is_liked==true){
+    clicked="like-button--liked";
+}
 
 });
 
@@ -130,7 +133,7 @@ function createImage(element,index){
     <div class="post__footer">
         <div class="likes js-likes">
             <div class="likes__cta">
-                <a class="like-button  js-like-button" href="#${element.id}" data-postid="${element.id}">
+                <a class="like-button ${clicked} js-like-button" href="#${element.id}" data-postid="${element.id}">
                     <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                     <span class="like-button__label">Mi Piace</span>
                 </a>
