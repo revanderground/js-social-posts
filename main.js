@@ -116,6 +116,7 @@ function createImage(element,index){
 
     if (element.is_liked==true){
         clicked="like-button--liked";
+    
     }
     
     currentPost.innerHTML= `<div class="post">
@@ -153,12 +154,21 @@ function createImage(element,index){
 
 postsWrapper.append(currentPost);
 
+
+
 likeButton= document.querySelector('.like-button');
 likeButton.addEventListener('click', function onClick() {
     likeButton.classList.add('like-button--liked');    
     }); 
 
+likeButton= document.querySelector('.like-button--liked');
+likeButton.addEventListener('click', function onClick() {
+    likeButton.classList.remove('like-button--liked');    
+    }); 
+
 
 }
+
+
 
 
