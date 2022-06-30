@@ -98,14 +98,13 @@ const posts = [
 ];
 
 const postsWrapper = document.querySelector('.posts-list');
-const btn = document.getElementById('like-button');
-
 
 
 posts.forEach((element,index)=>{
 
 createImage(element, index);
 
+    
 
 });
 
@@ -118,7 +117,8 @@ function createImage(element,index){
         clicked="like-button--liked";
     
     }
-    
+
+  
     currentPost.innerHTML= `<div class="post">
     <div class="post__header">
         <div class="post-meta">
@@ -156,15 +156,14 @@ postsWrapper.append(currentPost);
 
 
 
-likeButton= document.querySelector('.like-button');
+likeButton= document.querySelector('.js-like-button');
 likeButton.addEventListener('click', function onClick() {
-    likeButton.classList.add('like-button--liked');    
-    }); 
-
-likeButton= document.querySelector('.like-button--liked');
-likeButton.addEventListener('click', function onClick() {
-    likeButton.classList.remove('like-button--liked');    
-    }); 
+    
+    if (element.is_liked==false){
+        likeButton.classList.remove('like-button--liked');
+    }
+       
+}); 
 
 
 }
