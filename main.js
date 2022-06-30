@@ -100,11 +100,12 @@ const posts = [
 const postsWrapper = document.querySelector('.posts-list');
 const btn = document.getElementById('like-button');
 
+
+
 posts.forEach((element,index)=>{
-    
+
 createImage(element, index);
 
-    
 
 });
 
@@ -129,7 +130,7 @@ function createImage(element,index){
     <div class="post__footer">
         <div class="likes js-likes">
             <div class="likes__cta">
-                <a class="like-button  js-like-button" href="#" data-postid="1">
+                <a class="like-button  js-like-button" href="#${element.id}" data-postid="${element.id}">
                     <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                     <span class="like-button__label">Mi Piace</span>
                 </a>
@@ -145,11 +146,12 @@ function createImage(element,index){
 
 postsWrapper.append(currentPost);
 
+likeButton= document.querySelector('.like-button');
+likeButton.addEventListener('click', function onClick() {
+    likeButton.classList.add('like-button--liked');    
+    }); 
+
+
 }
 
 
-
-btn.addEventListener('click', function onClick() {
-  btn.target.style.backgroundColor = 'salmon';
-  btn.target.style.color = 'white';
-});
