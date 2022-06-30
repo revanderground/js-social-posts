@@ -105,15 +105,19 @@ const btn = document.getElementById('like-button');
 posts.forEach((element,index)=>{
 
 createImage(element, index);
-let clicked="";
-if (element.is_liked==true){
-    clicked="like-button--liked";
-}
+
 
 });
 
 function createImage(element,index){
     let currentPost= document.createElement('div');
+    
+    let clicked="";
+
+    if (element.is_liked==true){
+        clicked="like-button--liked";
+    }
+    
     currentPost.innerHTML= `<div class="post">
     <div class="post__header">
         <div class="post-meta">
