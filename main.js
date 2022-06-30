@@ -104,19 +104,20 @@ posts.forEach((element,index)=>{
 
 createImage(element, index);
 
-    
+
 
 });
 
 function createImage(element,index){
     let currentPost= document.createElement('div');
     
-    let clicked="";
+    let clicked=false;
 
     if (element.is_liked==true){
         clicked="like-button--liked";
     
     }
+
 
   
     currentPost.innerHTML= `<div class="post">
@@ -158,12 +159,13 @@ postsWrapper.append(currentPost);
 
 likeButton= document.querySelector('.js-like-button');
 likeButton.addEventListener('click', function onClick() {
-    
-    if (element.is_liked==false){
-        likeButton.classList.remove('like-button--liked');
-    }
-       
-}); 
+
+if (element.is_liked==false){
+    likeButton.classList.remove('like-button--liked');
+} 
+   
+});
+ 
 
 
 }
