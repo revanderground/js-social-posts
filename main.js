@@ -100,25 +100,23 @@ const posts = [
 const postsWrapper = document.querySelector('.posts-list');
 
 
-posts.forEach((element,index)=>{
+for (i=0; i < posts.length; i++){
 
-createImage(element, index);
+createImage(posts[i]);
 
 
 
-});
 
-function createImage(element,index){
+};
+
+function createImage(element){
     let currentPost= document.createElement('div');
-    
-    let clicked=false;
+    element=posts[i]
 
-    if (element.is_liked==true){
-        clicked="like-button--liked";
-    
-    }
-
-
+    let clicked;
+    if (posts[i].is_liked==true){
+        clicked='like-button--liked';  
+    } 
   
     currentPost.innerHTML= `<div class="post">
     <div class="post__header">
@@ -150,26 +148,27 @@ function createImage(element,index){
         </div>
     </div>
 </div>
-
 </div>`
 
 postsWrapper.append(currentPost);
 
+const myButtons = document.querySelectorAll('.js-like-button');
+for(let i = 0; i < myButtons.length; i++) {
+    myButtons[i].addEventListener('click', function(){
+         const post = posts[i]
+         
+            if (posts[i].is_liked==true){
+            myButtons[i].classList.remove('like-button--liked'); 
+            posts[i].is_liked==false;
+            } else if ((posts[i].is_liked==false)){
+            myButtons[i].classList.add('like-button--liked'); 
+            posts[i].is_liked==true;
+            };
+         
 
-
-likeButton= document.querySelector('.js-like-button');
-likeButton.addEventListener('click', function onClick() {
-
-if (element.is_liked==false){
-    likeButton.classList.remove('like-button--liked');
-} 
-   
-});
- 
-
-
+    })
 }
 
 
 
-
+}
